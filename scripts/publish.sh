@@ -5,7 +5,6 @@ usage="Usage: ./publish.sh <target>"
 target=${1:?"Missing target. ${usage}"}
 
 root="$(dirname ${BASH_SOURCE[0]})/../src"
-types_index="$(dirname ${BASH_SOURCE[0]})/../types/index.json"
 ext_name="bicep-ext-http"
 
 # prefer bicep from $PATH, fall back to ~/.azure/bin/bicep
@@ -20,7 +19,6 @@ env GOOS=windows GOARCH=arm64 go build -C $root -o "build/http-win-arm64.exe"
 
 # publish to the registry
 "$bicep_cmd" publish-extension \
-  $types_index \
   --bin-osx-arm64 "$root/build/http-osx-arm64" \
   --bin-linux-x64 "$root/build/http-linux-x64" \
   --bin-linux-arm64 "$root/build/http-linux-arm64" \

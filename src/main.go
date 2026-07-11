@@ -154,6 +154,18 @@ func (s *bicepExtensionServer) Ping(ctx context.Context, req *extension.Empty) (
 	return req, nil
 }
 
+func (s *bicepExtensionServer) GetTypeFiles(ctx context.Context, req *extension.Empty) (*extension.TypeFilesResponse, error) {
+	indexContent, typeFiles, err := buildTypeFiles()
+	if err != nil {
+		return nil, err
+	}
+
+	return &extension.TypeFilesResponse{
+		IndexFile: indexContent,
+		TypeFiles: typeFiles,
+	}, nil
+}
+
 type HttpRequest struct {
 	Uri    string `json:"uri"`
 	Format string `json:"format"`
