@@ -1,3 +1,5 @@
+targetScope = 'local'
+
 extension http
 
 param coords {

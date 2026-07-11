@@ -1,6 +1,7 @@
 {
   "experimentalFeaturesEnabled": {
-    "localDeploy": true
+    "localDeploy": true,
+    "ociEnabled": true
   },
   "cloud": {
     "credentialPrecedence": [
@@ -9,7 +10,7 @@
     "currentProfile": "AzureCloud"
   },
   "extensions": {
-    "http": "br:bicepextdemo.azurecr.io/extensions/http:0.1.1"
+    "http": "br:ghcr.io/anthony-c-martin/bicep-ext-http:0.1.3"
   },
   "implicitExtensions": []
 }
